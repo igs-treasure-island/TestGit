@@ -1,6 +1,7 @@
 name: Nuke the world
 
-on: [push]
+on:
+  workflow_dispatch:
 
 jobs:
   nuke_the_world_job:
