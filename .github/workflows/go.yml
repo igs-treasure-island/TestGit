@@ -48,4 +48,4 @@ jobs:
         # Name of the deployment which needs to be update
         deployment: thai-test.yaml
         # Name of container whose image needs to be updated
-        container: TestGit
+        container: testgit
