@@ -46,6 +46,6 @@ jobs:
         # Namespace of the deployment
         namespace: default
         # Name of the deployment which needs to be update
-        deployment: ./kube/thai-test.yaml
+        deployment: kube/thai-test.yaml
         # Name of container whose image needs to be updated
         container: testgit
