@@ -19,14 +19,12 @@ jobs:
     - name: Build
       run: go build -v ./...
     - name: Push to GCR GitHub Action
-      # You may pin to the exact commit or the version.
-      # uses: RafikFarhad/push-to-gcr-github-action@241707854fb71f655ec4e2a98bb16505f218bcc2
       uses: RafikFarhad/push-to-gcr-github-action@v4.1
       with:
         gcloud_service_key: ${{ secrets.WINBET_THAI }}
         registry: gcr.io
         project_id: winbet-thai
         image_name: testgit-dev
-        image_tag: latest
+        image_tag: latest,v1
         dockerfile: ./Dockerfile
         context: .
