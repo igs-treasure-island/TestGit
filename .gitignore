@@ -8,6 +8,7 @@
 *.so
 *.dylib
 TestGit
+oryxBuildBinary
 
 # Test binary, built with `go test -c`
 *.test
