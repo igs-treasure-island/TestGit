@@ -1,6 +1,6 @@
 FROM gcr.io/distroless/base
 
-COPY testgo ./
+COPY TestGit ./
 EXPOSE 8888
 
 CMD ["/TestGit"]
