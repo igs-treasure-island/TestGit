@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       labels:
-        app: testgo
+        app: testgit
     spec:
       terminationGracePeriodSeconds: 30
       containers:
