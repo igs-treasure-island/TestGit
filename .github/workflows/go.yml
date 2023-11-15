@@ -28,20 +28,31 @@ jobs:
         image_tag: latest,v1
         dockerfile: ./Dockerfile
         context: .
-    - name: kubectl - Google Cloud GKE cluster.
-      uses: ameydev/gke-kubectl-action@v1.02
-      with:
-        # GCP authorization credentials
-        APPLICATION_CREDENTIALS: ${{ secrets.WINBET_THAI }}
-        # Project id
-        PROJECT_ID: winbet-thai
-        # GKE Cluser Name
-        CLUSTER_NAME: thai-test-slot-cluster-1
-        # Zone Name
-        ZONE_NAME: asia-southeast1-a
     - name: Remark version
       run: |
         NUM=${{github.run_number}}
         sed -i 's/%v/$NUM/g' kube/thai-test.yaml
     - name: Deploy to GKE
       run: kubectl apply -f kube/thai-test.yaml
+    - name: docker-build-push-gcr-update-gke-deployment-action
+      uses: budtendr/docker-build-push-gcr-update-gke-deployment-action@1.4
+      with:
+        # Base64 encoded service account JSON from GCP IAM service account
+        service_account: ${{ secrets.WINBET_THAI }}
+        # Cluster Zone
+        zone: asia-southeast1-a
+        # Project ID from GCP
+        project_id: winbet-thai
+        # GCR registry host, It could be gcr.io/us.gcr.io/eu.gcr.io/asia.gcr.io
+        registry: gcr.io # default is gcr.io
+        # Name of the image
+        image_name: testgit-dev
+        # Name of GKE cluster
+        cluster: thai-test-slot-cluster-1
+        # Namespace of the deployment
+        namespace: default # default is default
+        # Name of the deployment which needs to be update
+        deployment: kube/thai-test.yaml
+        # Name of container whose image needs to be updated
+        container: testgit-dev
+              
