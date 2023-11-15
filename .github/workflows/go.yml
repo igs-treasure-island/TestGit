@@ -18,20 +18,21 @@ jobs:
         go-version: '1.19'
     - name: Build
       run: go build -v ./...
-    - name: Push to GCR GitHub Action
-      uses: RafikFarhad/push-to-gcr-github-action@v4.1
-      with:
-        gcloud_service_key: ${{ secrets.WINBET_THAI }}
-        registry: gcr.io
-        project_id: winbet-thai
-        image_name: testgit-dev
-        image_tag: latest,v1
-        dockerfile: ./Dockerfile
-        context: .
+    #- name: Push to GCR GitHub Action
+    #  uses: RafikFarhad/push-to-gcr-github-action@v4.1
+    #  with:
+    #    gcloud_service_key: ${{ secrets.WINBET_THAI }}
+    #    registry: gcr.io
+    #    project_id: winbet-thai
+    #    image_name: testgit-dev
+    #    image_tag: latest,v1
+    #    dockerfile: ./Dockerfile
+    #    context: .
     - name: Remark version
       run: |
         BUILD_NUMBER=${{github.run_number}}
         sed -i "s/%v/$BUILD_NUMBER/g" kube/thai-test.yaml
+        cp -f kube/thai-test.yaml thai-test.yaml
     - name: docker-build-push-gcr-update-gke-deployment-action
       uses: budtendr/docker-build-push-gcr-update-gke-deployment-action@1.4
       with:
@@ -50,7 +51,7 @@ jobs:
         # Namespace of the deployment
         namespace: default # default is default
         # Name of the deployment which needs to be update
-        deployment: kube/thai-test.yaml
+        deployment: thai-test.yaml
         # Name of container whose image needs to be updated
         container: testgit-dev
               
