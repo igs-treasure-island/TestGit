@@ -30,10 +30,8 @@ jobs:
         context: .
     - name: Remark version
       run: |
-        NUM=${{github.run_number}}
-        sed -i 's/%v/$NUM/g' kube/thai-test.yaml
-    - name: Deploy to GKE
-      run: kubectl apply -f kube/thai-test.yaml
+        BUILD_NUMBER=${{github.run_number}}
+        sed -i "s/%v/$BUILD_NUMBER/g" kube/thai-test.yaml
     - name: docker-build-push-gcr-update-gke-deployment-action
       uses: budtendr/docker-build-push-gcr-update-gke-deployment-action@1.4
       with:
