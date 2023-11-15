@@ -15,7 +15,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
-        go-version: '1.20'
+        go-version: '1.19'
     - name: Build
       run: go build -v ./...
     - name: Push to GCR GitHub Action
@@ -28,3 +28,24 @@ jobs:
         image_tag: latest,v1
         dockerfile: ./Dockerfile
         context: .
+    - name: Kubernetes deployment GKE
+      uses: ruben-baez-mojix-com/gke-deployment@v0.0.9
+      with:
+        # Docker image
+        image: gcr.io/winbet-thai/testgit-dev
+        # GCP project id
+        project: winbet-thai
+        # Image tag
+        tag: latest
+        # Image sha in case of using an specific version
+        #sha: # optional
+        # deploy name to upgrade
+        #deploy: # optional
+        # project id
+        project_id: winbet-thai
+        # project location
+        project_location: asia-southeast1-a
+        # project - cluster id
+        project_clusterID: thai-test-slot-cluster-1
+        # project - cluster name
+        project_cluster_name: thai-test-slot-cluster-1
