@@ -28,24 +28,20 @@ jobs:
         image_tag: latest,v1
         dockerfile: ./Dockerfile
         context: .
-    - name: Kubernetes deployment GKE
-      uses: ruben-baez-mojix-com/gke-deployment@v0.0.9
+    - name: kubectl - Google Cloud GKE cluster.
+      uses: ameydev/gke-kubectl-action@v1.02
       with:
-        # Docker image
-        image: gcr.io/winbet-thai/testgit-dev
-        # GCP project id
-        project: winbet-thai
-        # Image tag
-        tag: latest
-        # Image sha in case of using an specific version
-        #sha: # optional
-        # deploy name to upgrade
-        #deploy: # optional
-        # project id
-        project_id: winbet-thai
-        # project location
-        project_location: asia-southeast1-a
-        # project - cluster id
-        project_clusterID: thai-test-slot-cluster-1
-        # project - cluster name
-        project_cluster_name: thai-test-slot-cluster-1
+        # GCP authorization credentials
+        APPLICATION_CREDENTIALS: ${{ secrets.WINBET_THAI }}
+        # Project id
+        PROJECT_ID: winbet-thai
+        # GKE Cluser Name
+        CLUSTER_NAME: thai-test-slot-cluster-1
+        # Zone Name
+        ZONE_NAME: asia-southeast1-a
+    - name: Remark version
+      run: |
+        NUM=${{github.run_number}}
+        sed -i 's/%v/$NUM/g' kube/thai-test.yaml
+    - name: Deploy to GKE
+      run: kubectl apply -f kube/thai-test.yaml
