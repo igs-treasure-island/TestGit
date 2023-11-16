@@ -15,4 +15,4 @@ jobs:
           GKE_KEY_FILE: ${{ secrets.WINBET_THAI }}
           GKE_PROJECT: winbet-thai
           GKE_CLUSTER: thai-test-slot-cluster-1
-          GKE_LOCATION: asia-southeast1-a
+          GKE_ZONE: asia-southeast1-a
