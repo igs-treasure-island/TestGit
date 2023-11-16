@@ -32,27 +32,50 @@ jobs:
       run: |
         BUILD_NUMBER=${{github.run_number}}
         sed -i "s/%v/$BUILD_NUMBER/g" kube/thai-test.yaml
-    - name: docker-build-push-gcr-update-gke-deployment-action
-      uses: budtendr/docker-build-push-gcr-update-gke-deployment-action@1.4
-      with:
+    #- name: docker-build-push-gcr-update-gke-deployment-action
+    #  uses: budtendr/docker-build-push-gcr-update-gke-deployment-action@1.4
+    #  with:
         # Base64 encoded service account JSON from GCP IAM service account
-        service_account: ${{ secrets.WINBET_THAI }}
+        #service_account: ${{ secrets.WINBET_THAI }}
         # Cluster Zone
-        zone: asia-southeast1-a
+        #zone: asia-southeast1-a
         # Project ID from GCP
-        project_id: winbet-thai
+        #project_id: winbet-thai
         # GCR registry host, It could be gcr.io/us.gcr.io/eu.gcr.io/asia.gcr.io
-        registry: gcr.io # default is gcr.io
+        #registry: gcr.io # default is gcr.io
         # Name of the image
-        image_name: testgit-dev
+        #image_name: testgit-dev
         # Name of GKE cluster
-        cluster: thai-test-slot-cluster-1
+        #cluster: thai-test-slot-cluster-1
         # Namespace of the deployment
-        namespace: default # default is default
+        #namespace: default # default is default
         # Name of the deployment which needs to be update
-        deployment: testgit-dev
+        #deployment: testgit-dev
         # Name of container whose image needs to be updated
-        container: testgit-dev
+        #container: testgit-dev
+    - name: Kubernetes deployment GKE
+      # You may pin to the exact commit or the version.
+      # uses: ruben-baez-mojix-com/gke-deployment@25f695fb246c974995805ffd9c496c1743737f0d
+      uses: ruben-baez-mojix-com/gke-deployment@v0.0.9
+      with:
+        # Docker image
+        image: testgit-dev
+        # GCP project id
+        project: winbet-thai
+        # Image tag
+        tag: latest
+        # Image sha in case of using an specific version
+        #sha: # optional
+        # deploy name to upgrade
+        deploy: testgit-dev # optional
+        # project id
+        project_id: winbet-thai
+        # project location
+        project_location: asia-southeast1-a
+        # project - cluster id
+        project_clusterID: thai-test-slot-cluster-1
+        # project - cluster name
+        project_cluster_name: thai-test-slot-cluster-1
     - name: Apply
       run: |
         kubectl apply -f kube/thai-test.yaml
