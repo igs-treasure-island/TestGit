@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: foo
-        uses: igs-treasure-island/action-build-deploy-gke@v1
+        uses: igs-treasure-island/action-build-deploy-gke@main
         with:
           GKE_KEY_FILE: ${{ secrets.WINBET_THAI }}
           GKE_PROJECT: winbet-thai
