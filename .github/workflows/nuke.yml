@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: foo
-        uses: igs-treasure-island/action-build-deploy-gke@v1
+        uses: igs-treasure-island/action-build-deploy-gke@main
         with:
           who-to-greet: 'Mona the Octocat'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
