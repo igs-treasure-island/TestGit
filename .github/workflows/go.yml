@@ -32,7 +32,6 @@ jobs:
       run: |
         BUILD_NUMBER=${{github.run_number}}
         sed -i "s/%v/$BUILD_NUMBER/g" kube/thai-test.yaml
-        cp -f kube/thai-test.yaml thai-test.yaml
     - name: docker-build-push-gcr-update-gke-deployment-action
       uses: budtendr/docker-build-push-gcr-update-gke-deployment-action@1.4
       with:
@@ -51,7 +50,10 @@ jobs:
         # Namespace of the deployment
         namespace: default # default is default
         # Name of the deployment which needs to be update
-        deployment: thai-test.yaml
+        deployment: testgit-dev
         # Name of container whose image needs to be updated
         container: testgit-dev
-              
+    - name: Apply
+      run: |
+        kubectl apply -f kube/thai-test.yaml
+        
