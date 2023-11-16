@@ -17,4 +17,4 @@ jobs:
           GKE_CLUSTER: thai-test-slot-cluster-1
           GKE_ZONE: asia-southeast1-a
           DEPLOYMENT_NAME: testgit-dev
-          YAML: thai-test.yaml
+          YAML: kube/thai-test.yaml
