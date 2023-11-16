@@ -4,10 +4,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  nuke_the_world_job:
+  hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to nuke
+    name: A job to say hello
     steps:
-      - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: echo "${{ secrets.WINBET_THAI }}"
-      
+      - uses: actions/checkout@v4
+      - id: foo
+        uses: actions/action-build-deploy-gke@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
