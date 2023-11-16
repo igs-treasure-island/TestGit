@@ -16,5 +16,5 @@ jobs:
           GKE_PROJECT: winbet-thai
           GKE_CLUSTER: thai-test-slot-cluster-1
           GKE_ZONE: asia-southeast1-a
-          DEPLOYMENT_NAME: testgit-dev
+          DEPLOYMENT_NAME: testgit
           YAML: kube/thai-test.yaml
