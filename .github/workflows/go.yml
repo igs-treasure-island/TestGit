@@ -29,5 +29,5 @@ jobs:
       with:
         REPOSITORY_NAME: gcr.io/winbet-thai/testgit-dev
         TAG: $TAG
-        REGISTRY_CREDENTIALS: ${{secrets.WINBET_THAI}}
+        CREDENTIALS: ${{secrets.WINBET_THAI}}
         
