@@ -13,8 +13,8 @@ jobs:
         with:
           CREDENTIALS: ${{secrets.WINBET_THAI}}
           REPOSITORY_NAME: gcr.io/winbet-thai/testgit-dev
+          PREFIX: '2.1.'
           PROJECT_ID: winbet-thai
           CLUSTER: thai-test-slot-cluster-1
           ZONE: asia-southeast1-a
           MANIFESTS: kube/thai-test.yaml
-          PREFIX: '2.1.'
