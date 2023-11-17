@@ -23,7 +23,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: testgit
-        image: gcr.io/winbet-thai/testgit-dev:latest
+        image: gcr.io/winbet-thai/testgit-dev:%v
         imagePullPolicy: Always
         env:
         - name: NodeName
