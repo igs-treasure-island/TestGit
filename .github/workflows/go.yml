@@ -26,6 +26,6 @@ jobs:
       uses: igs-treasure-island/action-docker-build-publish@main
       with:
         REPOSITORY_NAME: gcr.io/winbet-thai/testgit-dev
-        TAG: 2.0.${{BUILD_NUMBER}}
+        TAG: 2.0.${BUILD_NUMBER}
         REGISTRY_CREDENTIALS: ${{secrets.WINBET_THAI}}
         
