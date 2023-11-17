@@ -17,3 +17,4 @@ jobs:
           CLUSTER: thai-test-slot-cluster-1
           ZONE: asia-southeast1-a
           MANIFESTS: kube/thai-test.yaml
+          TAG: latest
