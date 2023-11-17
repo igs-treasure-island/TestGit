@@ -20,12 +20,12 @@ jobs:
       run: go build -v ./...
     - name: Remark version
       run: |
-        export BUILD_NUMBER=${{github.run_number}}
+        BUILD_NUMBER=${{github.run_number}}
         sed -i "s/%v/2.0.$BUILD_NUMBER/g" kube/thai-test.yaml
     - name: Docker
       uses: igs-treasure-island/action-docker-build-publish@main
       with:
         REPOSITORY_NAME: gcr.io/winbet-thai/testgit-dev
-        TAG: 2.0.$BUILD_NUMBER
-        REGISTRY_CREDENTIALS: ${{ secrets.WINBET_THAI }}
+        TAG: 2.0.${{github.run_number}}
+        REGISTRY_CREDENTIALS: ${{secrets.WINBET_THAI}}
         
