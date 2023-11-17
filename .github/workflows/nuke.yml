@@ -12,9 +12,8 @@ jobs:
       - id: foo
         uses: igs-treasure-island/action-build-deploy-gke@main
         with:
-          GKE_KEY_FILE: ${{ secrets.WINBET_THAI }}
-          GKE_PROJECT: winbet-thai
-          GKE_CLUSTER: thai-test-slot-cluster-1
-          GKE_ZONE: asia-southeast1-a
-          DEPLOYMENT_NAME: testgit
-          YAML: kube/thai-test.yaml
+          CREDENTIALS: ${{ secrets.WINBET_THAI }}
+          PROJECT_ID: winbet-thai
+          CLUSTER: thai-test-slot-cluster-1
+          ZONE: asia-southeast1-a
+          MANIFESTS: kube/thai-test.yaml
