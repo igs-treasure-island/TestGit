@@ -1,0 +1,19 @@
+name: Jenkins work
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Jenkins
+    steps:
+      - name: Jenkins
+        uses: igs-treasure-island/action-jenkins@main
+        with:
+          CREDENTIALS: ${{secrets.WINBET_THAI}}
+          REPOSITORY_NAME: gcr.io/winbet-thai/testgit-dev
+          PROJECT_ID: winbet-thai
+          CLUSTER: thai-test-slot-cluster-1
+          ZONE: asia-southeast1-a
+          MANIFESTS: kube/thai-test.yaml
