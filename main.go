@@ -31,7 +31,7 @@ func main() {
 
 	r.Use(cors.New(co))
 	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, "pong")
+		c.JSON(http.StatusOK, "pong2")
 	})
 
 	r.GET("/", func(c *gin.Context) {
