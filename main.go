@@ -17,6 +17,7 @@ import (
 func main() {
 	fmt.Printf("Hello, world\n")
 	fmt.Print("Edit by Yu\n")
+	fmt.Printf("From w0001\n")
 
 	r := gin.New()
 	r.Use(gin.Recovery())
