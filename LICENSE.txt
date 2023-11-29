@@ -3,3 +3,9 @@ GNU GENERAL PUBLIC LICENSE
 Version 3, 29 June 2007
 
 <Add the full text of the GNU GPL version 3 here>
+# FILEPATH: /r:/WorkGit/TestGit/LICENSE.txt
+
+with open('/r:/WorkGit/TestGit/LICENSE.txt', 'r') as file:
+    content = file.read()
+
+print(content)
