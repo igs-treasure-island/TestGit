@@ -9,5 +9,6 @@ jobs:
       - env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          #gh api https://api.github.com/repos/octocat
-          echo ${{ github.repository }}
+          curl -L -H "Accept: application/vnd.github+json" -H "Authorization: token ${{secrets.GIT_TOKEN}}" "https://api.github.com/orgs/igs-treasure-island/repos" | \
+          grep \"full_name\":| cut -d/ -f 2|cut -d\" -f 1|sort
+
