@@ -21,4 +21,4 @@ jobs:
     steps:
       - name: test loop
         run: |
-          echo "This is $my_var"
+          echo "This is ${{matrix.my_var}}"
