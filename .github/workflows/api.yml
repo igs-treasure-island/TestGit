@@ -19,10 +19,10 @@ jobs:
     name: Loop test
     runs-on: ubuntu-latest
     env:
-      LIST: ''
+      LIST: $LIST
     strategy:
       matrix:
-        my_var: ${{env.LIST}}
+        my_var: ${{LIST}}
     steps:
       - name: test loop
         run: |
