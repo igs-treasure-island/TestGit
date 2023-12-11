@@ -18,9 +18,11 @@ jobs:
   use_api2:
     name: Loop test
     runs-on: ubuntu-latest
+    env:
+      LIST: ''
     strategy:
       matrix:
-        my_var: ${{LIST}}
+        my_var: ${{env.LIST}}
     steps:
       - name: test loop
         run: |
