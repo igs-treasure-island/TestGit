@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        my_var: ${{env.LIST}}
+        my_var: ${{LIST}}
     steps:
       - name: test loop
         run: |
