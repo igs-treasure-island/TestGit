@@ -14,7 +14,7 @@ jobs:
           grep \"full_name\":| cut -d/ -f 2|cut -d\" -f 1 > /tmp/list.txt
           LIST=`cat list.txt`
           echo $LIST
-          echo "LIST=$LIST" >> $GITHUB_ENV
+          echo "LIST=['a','b','c']" >> $GITHUB_ENV
   use_api2:
     name: Loop test
     runs-on: ubuntu-latest
