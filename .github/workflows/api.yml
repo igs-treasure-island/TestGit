@@ -3,8 +3,6 @@ on:
 jobs:
   use_api:
     runs-on: ubuntu-latest
-    permissions:
-      issues: read
     steps:
       - env:
           GH_TOKEN: ${{ secrets.GIT_TOKEN }}
@@ -13,5 +11,14 @@ jobs:
           -H "Accept: application/vnd.github+json" \
           -H "Authorization: token ${{env.GH_TOKEN}}" \
           "https://api.github.com/orgs/igs-treasure-island/repos" 2>/dev/null | \
-          grep \"full_name\":| cut -d/ -f 2|cut -d\" -f 1|grep -v -f ../../.tagignore|sort
-
+          grep \"full_name\":| cut -d/ -f 2|cut -d\" -f 1
+  use_api2:
+    name: Loop test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        my_var: [ "a", "b", "c" ]
+    steps:
+      - name: test loop
+        run: |
+          echo "This is $my_Var"
