@@ -9,6 +9,9 @@ jobs:
       - env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          curl -L -H "Accept: application/vnd.github+json" -H "Authorization: token ${{secrets.GIT_TOKEN}}" "https://api.github.com/orgs/igs-treasure-island/repos" | \
+          curl -L \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: token ${{secrets.GIT_TOKEN}}" \
+          "https://api.github.com/orgs/igs-treasure-island/repos" 2>/dev/null | \
           grep \"full_name\":| cut -d/ -f 2|cut -d\" -f 1|sort
 
