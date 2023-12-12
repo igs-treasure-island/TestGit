@@ -4,7 +4,7 @@ jobs:
   use_api:
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.set-matrix.outpus.matrix }}
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - id: set-matrix
         env:
