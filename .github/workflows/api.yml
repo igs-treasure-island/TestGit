@@ -3,8 +3,11 @@ on:
 jobs:
   use_api:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outpus.matrix }}
     steps:
-      - env:
+      - id: set-matrix
+        env:
           GH_TOKEN: ${{ secrets.GIT_TOKEN }}
         run: |
           curl -L \
@@ -14,16 +17,14 @@ jobs:
           grep \"full_name\":| cut -d/ -f 2|cut -d\" -f 1 > /tmp/list.txt
           LIST=`cat list.txt`
           echo $LIST
-          echo "LIST=['a','b','c']" >> $GITHUB_ENV
+          echo "matrix=['a','b','c']" >> $GITHUB_OUTPUT
   use_api2:
+    needs: use_api
     name: Loop test
     runs-on: ubuntu-latest
-    env:
-      LIST: $LIST
     strategy:
-      matrix:
-        my_var: ${{LIST}}
+      matrix: ${{ fromJSON(needs.use_api.outputs.matrix )}}
     steps:
       - name: test loop
         run: |
-          echo "This is ${{matrix.my_var}}"
+          echo "This is ${{matrix}}"
