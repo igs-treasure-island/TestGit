@@ -15,7 +15,7 @@ jobs:
           -H "Authorization: token ${{env.GH_TOKEN}}" \
           "https://api.github.com/orgs/igs-treasure-island/repos" 2>/dev/null | \
           grep \"full_name\":| cut -d/ -f 2|cut -d\" -f 1 > /tmp/list.txt
-          LIST=`cat list.txt`
+          LIST=`cat /tmp/list.txt`
           echo $LIST
           echo "matrix=['a','b','c']" >> $GITHUB_OUTPUT
   use_api2:
