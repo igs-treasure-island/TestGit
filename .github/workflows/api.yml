@@ -21,7 +21,7 @@ jobs:
           JQ=`cat /tmp/list.txt | jq -Rsc '. / "\n" - [""]'`
           echo "matrix=$JQ" >> $GITHUB_OUTPUT
           TAG=`date +%Y%m%d`_production
-          echo "tag=$TAG" >> $GUTHUB_OUTPUT
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
   use_api2:
     needs: use_api
     name: Loop test
