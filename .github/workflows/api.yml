@@ -23,7 +23,7 @@ jobs:
     name: Loop test
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{ fromJSON(needs.use_api.outputs.matrix )}}
+      matrix: ${{ fromJSON(needs.use_api.outputs.matrix) }}
     steps:
       - name: test loop
         run: |
