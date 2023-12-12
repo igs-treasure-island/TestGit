@@ -17,7 +17,8 @@ jobs:
           grep \"full_name\":| cut -d/ -f 2|cut -d\" -f 1 > /tmp/list.txt
           LIST=`cat /tmp/list.txt`
           echo $LIST
-          echo "matrix=[\"a\",\"b\",\"c\"]" >> $GITHUB_OUTPUT
+          JQ=`cat /tmp/list.txt | jq -Rsc '. / "\n" - [""]'`
+          echo "matrix=$JQ" >> $GITHUB_OUTPUT
   use_api2:
     needs: use_api
     name: Loop test
