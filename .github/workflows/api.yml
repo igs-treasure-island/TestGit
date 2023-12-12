@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
+      tag: ${{ steps.set-matrix.outputs.tag }}
     steps:
       - id: set-matrix
         env:
@@ -19,6 +20,8 @@ jobs:
           echo $LIST
           JQ=`cat /tmp/list.txt | jq -Rsc '. / "\n" - [""]'`
           echo "matrix=$JQ" >> $GITHUB_OUTPUT
+          TAG=`date +%Y%m%d`_production
+          echo "tag=$TAG" >> $GUTHUB_OUTPUT
   use_api2:
     needs: use_api
     name: Loop test
@@ -28,5 +31,7 @@ jobs:
         var: ${{ fromJSON(needs.use_api.outputs.matrix) }}
     steps:
       - name: test loop
+        env: 
+          TAG: ${{ needs.use_api.outputs.tag }}
         run: |
-          echo "This is ${{matrix.var}}"
+          echo "This is ${{matrix.var}} TAG=$TAG"
