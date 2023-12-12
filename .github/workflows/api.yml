@@ -23,8 +23,9 @@ jobs:
     name: Loop test
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{ fromJSON(needs.use_api.outputs.matrix) }}
+      matrix: 
+        var: ${{ fromJSON(needs.use_api.outputs.matrix) }}
     steps:
       - name: test loop
         run: |
-          echo "This is ${{matrix}}"
+          echo "This is ${{matrix.var}}"
