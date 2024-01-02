@@ -18,4 +18,10 @@ jobs:
         shell: bash
         run: |
           echo "Part2:$BUILD_NUMBER"
+      - name: Eval Test
+        shell: bash
+        run: |
+          TEXT="echo 123"
+          eval $TEXT
+    
           
