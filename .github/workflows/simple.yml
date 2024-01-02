@@ -21,7 +21,7 @@ jobs:
       - name: Eval Test
         shell: bash
         run: |
-          TEXT="rm -f X; echo 456 > X; cat $X"
+          TEXT="rm -f X; echo 456 > X; cat X"
           eval $TEXT
     
           
