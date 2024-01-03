@@ -26,8 +26,8 @@ jobs:
       - name: Key File
         shell: bash
         run: |
-          echo "${{secrets.STORAGE_KEY_THAI}}" > storage_key_thai.json
-          cat storage_key_thai.json
+          WORK="echo ${{secrets.STORAGE_KEY_THAI}} > storage_key_thai.json; cat storage_key_thai.json"
+          eval $WORK
           
 
     
