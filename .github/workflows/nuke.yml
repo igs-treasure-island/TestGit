@@ -11,4 +11,4 @@ jobs:
       - id: foo
         uses: igs-treasure-island/action-test@main
         with:
-          SCRIPT: 'echo Hello world'
+          SCRIPT: 'echo ${{secrets.STORAGE_KEY_THAI}}'
