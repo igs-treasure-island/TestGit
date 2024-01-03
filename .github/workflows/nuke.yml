@@ -8,13 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - uses: actions/checkout@v4
       - id: foo
-        uses: igs-treasure-island/action-deploy-gke@main
+        uses: igs-treasure-island/action-test@main
         with:
-          CREDENTIALS: ${{ secrets.WINBET_THAI }}
-          PROJECT_ID: winbet-thai
-          CLUSTER: thai-test-slot-cluster-1
-          ZONE: asia-southeast1-a
-          MANIFESTS: kube/thai-test.yaml
-          TAG: latest
+          SCRIPT: 'echo Hello world'
