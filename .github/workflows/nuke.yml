@@ -15,5 +15,5 @@ jobs:
       - id: foo
         uses: igs-treasure-island/action-test@main
         with:
-          SCRIPT: 'echo "${{secrets.STORAGE_KEY_THAI_B64}}" | base64 -d > storage_key_thai.json; cat storage_key_thai.json'
+          SCRIPT: 'echo "${{secrets.STORAGE_KEY_TADA_B64}}" | base64 -d > storage_key_tada.json; cat storage_key_tada.json'
       
