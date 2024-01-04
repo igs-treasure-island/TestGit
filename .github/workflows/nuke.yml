@@ -11,7 +11,7 @@ jobs:
       - id: bar
         shell: bash
         run: |
-          echo "${{secrets.STORAGE_KEY_THAI}}" > storage_key_thai.json; cat storage_key_thai.json
+          echo "${{secrets.STORAGE_KEY_THAI_B64}}" | base64 -d > storage_key_thai.json; cat storage_key_thai.json
       #- id: foo
       #  uses: igs-treasure-island/action-test@main
       #  with:
