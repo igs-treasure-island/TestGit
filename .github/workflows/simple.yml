@@ -12,5 +12,7 @@ jobs:
         shell: bash
         run: |
           CMD='echo "${{secrets.ANDROID_API_KEY_THAI_B64}}" | base64 -d > key.txt; 
-               cat key.txt'
+               cat key.txt
+               sed s/555/`cat key.txt`/g > out.txt;
+               cat out.txt'
           eval $CMD
