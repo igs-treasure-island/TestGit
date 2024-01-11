@@ -18,17 +18,8 @@ jobs:
         shell: bash
         run: |
           echo "Part2:$BUILD_NUMBER"
-      - name: Eval Test
-        shell: bash
-        run: |
-          TEXT="rm -f X; echo 456 > X; cat X"
-          eval $TEXT
       - name: Key File
         shell: bash
         run: |
-          WORK='echo ${{secrets.STORAGE_KEY_THAI}} > storage_key_thai.json; cat storage_key_thai.json'
+          WORK='echo ${{secrets.THAI_ANDROID_API_KEY}} > key.txt; cat key.txt'
           eval $WORK
-          
-
-    
-          
