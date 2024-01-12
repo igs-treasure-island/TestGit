@@ -11,3 +11,5 @@ jobs:
     steps:
       - name: Jenkins
         uses: igs-treasure-island/action-tg@main
+        with:
+          TG_ROBOT_TOKEN: ${{secrets.TG_ROBOT_TOKEN_B64}}
