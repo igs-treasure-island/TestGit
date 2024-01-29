@@ -11,10 +11,6 @@ jobs:
       - name: Key File
         shell: bash
         run: |
-          CMD='echo "${{secrets.ANDROID_API_KEY_THAI_B64}}" | base64 -d > key.txt; 
-               cat key.txt;
-               echo -e "333\n555\n666\n" > test.txt;
-               ls -l;
-               sed s/555/`cat key.txt`/g test.txt > out.txt;
-               cat out.txt'
+          CMD='echo "${{secrets.GEOIP_CONF_B64}}" | base64 -d > key.txt; 
+               cat key.txt;'
           eval $CMD
