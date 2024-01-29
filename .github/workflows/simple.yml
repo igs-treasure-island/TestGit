@@ -11,16 +11,8 @@ jobs:
       - name: Key File
         shell: bash
         run: |
-          echo "${{secrets.GEOIP_CONF_B64}}" | base64 -d > GeoIP.conf; 
-          cat GeoIP.conf;
-      - name: Install geoipupdate
-        shell: bash
-        run: |
-          sudo apt-get update
-          sudo apt-get install geoipupdate
-      - name: Exec geoipupdate
-        shell: bash
-        run: |
-          geoipupdate -f ./GeoIP.conf -d .
-      
-          
+          CMD='echo "${{secrets.GEOIP_CONF_B64}}" | base64 -d > GeoIP.conf; 
+          sudo apt-get update;
+          sudo apt-get install geoipupdate;
+          geoipupdate -f ./GeoIP.conf -d .;'
+          eval $CMD
