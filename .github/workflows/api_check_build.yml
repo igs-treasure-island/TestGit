@@ -13,7 +13,8 @@ jobs:
           curl -L \
           -H "Accept: application/vnd.github+json" \
           -H "Authorization: token ${{env.GH_TOKEN}}" \
-          "https://api.github.com/orgs/igs-treasure-island/repos" 2>/dev/null > output.txt
+          "https://api.github.com/repos/igs-treasure-island/CreditAppLife/actions/runs" 2>/dev/null > output.txt
+          #"https://api.github.com/orgs/igs-treasure-island/repos" 2>/dev/null > output.txt
           cat output.txt
           
 
