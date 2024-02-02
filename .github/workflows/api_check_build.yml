@@ -1,12 +1,10 @@
-name: API test
+name: API test for check build
 on:
   workflow_dispatch:
 jobs:
   use_api:
-    runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
-      tag: ${{ steps.set-matrix.outputs.tag }}
+    runs-on: 
+      group: ubuntu-runners
     steps:
       - id: set-matrix
         env:
@@ -15,24 +13,7 @@ jobs:
           curl -L \
           -H "Accept: application/vnd.github+json" \
           -H "Authorization: token ${{env.GH_TOKEN}}" \
-          "https://api.github.com/orgs/igs-treasure-island/repos" 2>/dev/null | \
-          grep \"full_name\":| cut -d/ -f 2|cut -d\" -f 1 > /tmp/list.txt
-          LIST=`cat /tmp/list.txt`
-          echo $LIST
-          JQ=`cat /tmp/list.txt | jq -Rsc '. / "\n" - [""]'`
-          echo "matrix=$JQ" >> $GITHUB_OUTPUT
-          TAG=`date +%Y%m%d`_production
-          echo "tag=$TAG" >> $GITHUB_OUTPUT
-  use_api2:
-    needs: use_api
-    name: Loop test
-    runs-on: ubuntu-latest
-    strategy:
-      matrix: 
-        var: ${{ fromJSON(needs.use_api.outputs.matrix) }}
-    steps:
-      - name: test loop
-        env: 
-          TAG: ${{ needs.use_api.outputs.tag }}
-        run: |
-          echo "This is ${{matrix.var}} TAG=$TAG"
+          "https://api.github.com/orgs/igs-treasure-island/repos" 2>/dev/null > output.txt
+          cat output.txt
+          
+
