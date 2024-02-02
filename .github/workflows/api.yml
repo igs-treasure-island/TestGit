@@ -1,3 +1,4 @@
+name: API test
 on:
   workflow_dispatch:
 jobs:
