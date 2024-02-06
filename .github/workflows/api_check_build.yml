@@ -17,7 +17,7 @@ jobs:
           #"https://api.github.com/orgs/igs-treasure-island/repos" 2>/dev/null > output.txt
           RUN_NUMBER=`cat output.txt |jq '.workflow_runs|map(select(.path|.==".github/workflows/dev.yml"))|map(.run_number)|max'`
           echo $RUN_NUMBER
-          JOB_ID=`cat output.txt |jq --arg run $RUN_NUMBER '.workflow_runs|map(select(.path|.==".github/workflows/dev.yml"))|map(select(.run_number|tostring==$ARGS.named.run))|.[].id'`
+          JOB_ID=`cat output.txt |jq '.workflow_runs|map(select(.path|.==".github/workflows/dev.yml"))|map(select(.run_number|tostring==env.RUN_NUMBER))|.[].id'`
           echo $JOB_ID
           curl -L \
           -H "Accept: application/vnd.github+json" \
