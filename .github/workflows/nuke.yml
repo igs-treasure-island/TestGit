@@ -9,12 +9,16 @@ jobs:
       group: ubuntu-runners
     name: A job to say hello
     steps:
-      #- id: bar
-      #  shell: bash
-      #  run: |
-      #    echo "${{secrets.STORAGE_KEY_THAI_B64}}" | base64 -d > storage_key_thai.json; cat storage_key_thai.json
       - id: foo
-        uses: igs-treasure-island/action-test@main
+        uses: igs-treasure-island/action-utils@main
         with:
-          SCRIPT: 'echo "${{secrets.PUBSUB_KEY_TADA_ASIA_B64}}" | base64 -d > storage_key_tada.json; cat storage_key_tada.json'
+            GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+            REPOSITORY_NAME: 'CreditAppLife'
+            ACTION_NAME: 'dev.yml'
+            SUCCESS: 1
+      - name: bar
+        shell: bash
+        run: |
+          echo $RUN_NUMBER
+          
       
