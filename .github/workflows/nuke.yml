@@ -13,8 +13,8 @@ jobs:
         uses: igs-treasure-island/action-utils@main
         with:
             GIT_TOKEN: ${{secrets.GIT_TOKEN}}
-            REPOSITORY_NAME: 'CreditAppLife'
-            ACTION_NAME: 'dev.yml'
+            REPOSITORY_NAME: 'TestGit'
+            ACTION_NAME: 'nuke.yml'
             SUCCESS: 0
       - name: bar
         shell: bash
