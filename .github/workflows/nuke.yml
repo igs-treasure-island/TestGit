@@ -10,7 +10,7 @@ jobs:
     name: A job to say hello
     steps:
       - id: foo
-        uses: igs-treasure-island/action-utils@main
+        uses: igs-treasure-island/action-find-run-number@main
         with:
             GIT_TOKEN: ${{secrets.GIT_TOKEN}}
             REPOSITORY_NAME: 'TestGit'
