@@ -15,7 +15,7 @@ jobs:
           -H "Authorization: token ${{env.GH_TOKEN}}" \
           "https://api.github.com/repos/igs-treasure-island/CreditAppLife/actions/runs" 2>/dev/null > output.txt
           #"https://api.github.com/orgs/igs-treasure-island/repos" 2>/dev/null > output.txt
-          RUN_NUMBER=`cat output.txt |jq '.workflow_runs|map(select(.path|.==".github/workflows/dev.yml"))|map(.run_number)|max'`
+          export RUN_NUMBER=`cat output.txt |jq '.workflow_runs|map(select(.path|.==".github/workflows/dev.yml"))|map(.run_number)|max'`
           echo $RUN_NUMBER
           JOB_ID=`cat output.txt |jq '.workflow_runs|map(select(.path|.==".github/workflows/dev.yml"))|map(select(.run_number|tostring==$ENV.RUN_NUMBER))|.[].id'`
           echo $JOB_ID
