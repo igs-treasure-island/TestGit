@@ -15,7 +15,7 @@ jobs:
             GIT_TOKEN: ${{secrets.GIT_TOKEN}}
             REPOSITORY_NAME: 'TestGit'
             ACTION_NAME: 'nuke.yml'
-            SUCCESS: 1
+            SUCCESS: 0
       - name: bar
         shell: bash
         run: |
