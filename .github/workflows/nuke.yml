@@ -19,6 +19,7 @@ jobs:
       - name: bar
         shell: bash
         run: |
+          RUN_NUMBER=${{steps.foo.outputs.RUN_NUMBER}}
           echo $RUN_NUMBER
           
       
