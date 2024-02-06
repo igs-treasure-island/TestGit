@@ -12,7 +12,7 @@ jobs:
       - id: foo
         uses: igs-treasure-island/action-utils@main
         with:
-            GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+            GIT_TOKEN: ${{secrets.GIT_TOKEN}}
             REPOSITORY_NAME: 'CreditAppLife'
             ACTION_NAME: 'dev.yml'
             SUCCESS: 1
