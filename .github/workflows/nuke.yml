@@ -15,7 +15,7 @@ jobs:
             GIT_TOKEN: ${{secrets.GIT_TOKEN}}
             REPOSITORY_NAME: 'CreditAppLife'
             ACTION_NAME: 'dev.yml'
-            SUCCESS: 1
+            SUCCESS: 0
       - name: bar
         shell: bash
         run: |
