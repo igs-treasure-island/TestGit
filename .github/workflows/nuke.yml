@@ -13,7 +13,7 @@ jobs:
         uses: igs-treasure-island/action-find-run-number@main
         with:
             GIT_TOKEN: ${{secrets.GIT_TOKEN}}
-            DIRECTORY_NAME: 'TestGit'
+            DIR_NAME: 'TestGit'
             ACTION_NAME: 'nuke.yml'
             SUCCESS: 0
       - name: bar
