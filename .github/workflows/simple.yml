@@ -10,4 +10,6 @@ jobs:
     name: A job to say hello
     steps:
       - name: Key File
-        uses: igs-treasure-island/action-test@main
+        shell: bash
+        run: |
+          echo "Hello"
