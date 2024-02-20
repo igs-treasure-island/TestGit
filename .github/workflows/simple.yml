@@ -12,6 +12,10 @@ jobs:
       - name: Key File
         shell: bash
         run: |
-          #sudo apt-get -y install mtr
-          which mtr
-          which geoipupdate 
+          MTR=`which mtr`
+          if [ -z "$MTR" ]; then
+            echo "Fetch mtr..."
+            sudo apt-get -y install mtr
+            MTR=`which mtr`
+          fi
+          echo $MTR
