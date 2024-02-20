@@ -12,5 +12,5 @@ jobs:
       - name: Key File
         shell: bash
         run: |
-          sudo apt-get -y install mtr
+          #sudo apt-get -y install mtr
           which mtr
