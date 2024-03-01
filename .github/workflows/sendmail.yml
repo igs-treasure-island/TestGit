@@ -1,0 +1,21 @@
+name: '寫信到海角七號'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: 
+      group: ubuntu-runners
+    name: A job to say hello
+    steps:
+      - name: Key File
+        shell: bash
+        run: |
+          MTR=`which mtr`
+          if [ -z "$MTR" ]; then
+            echo "Fetch mtr..."
+            sudo apt-get -y install mtr
+            MTR=`which mtr`
+          fi
+          echo $MTR
