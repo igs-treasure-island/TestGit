@@ -14,7 +14,7 @@ jobs:
         shell: bash
         run: |
           DATABASE=`echo ${{secrets.UNIT_TEST_DATABASE_B64}} | base64 -d`
-          echo $DATABASE
+          echo "$DATABASE"
           echo "database=$DATABASE" >> $GITHUB_ENV
       - name: next
         shell: bash
