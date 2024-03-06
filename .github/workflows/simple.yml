@@ -12,5 +12,5 @@ jobs:
       - name: Key File
         shell: bash
         run: |
-          curl https://myip.com.tw/
+          curl https://www.ipaddress.my/?lang=zh_TW
 
