@@ -12,6 +12,9 @@ jobs:
       - name: bar
         shell: bash
         run: |
-          echo ${{secrets.UNIT_TEST_DATABASE_B64}} | base64 -d
-          
-      
+          DATABASE=`echo ${{secrets.UNIT_TEST_DATABASE_B64}} | base64 -d`
+          echo "database=$DATABASE" >> $GITHUB_OUTPUT
+      - name: next
+        shell: bash
+        run: |
+          echo $database
