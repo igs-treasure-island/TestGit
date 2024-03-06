@@ -12,6 +12,6 @@ jobs:
       - name: bar
         shell: bash
         run: |
-          cat ${{secrets.UNIT_TEST_DATABASE_B64}} | base64 -d
+          echo ${{secrets.UNIT_TEST_DATABASE_B64}} | base64 -d
           
       
