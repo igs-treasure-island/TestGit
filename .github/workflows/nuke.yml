@@ -9,11 +9,12 @@ jobs:
       group: ubuntu-runners
     name: A job to say hello
     steps:
-      - name: bar
+      - id: foo
+        name: bar
         shell: bash
         run: |
           DATABASE=`echo ${{secrets.UNIT_TEST_DATABASE_B64}} | base64 -d`
-          echo "database=$DATABASE" >> $GITHUB_OUTPUT
+          echo "database=$DATABASE" >> $GITHUB_ENV
       - name: next
         shell: bash
         run: |
