@@ -9,17 +9,9 @@ jobs:
       group: ubuntu-runners
     name: A job to say hello
     steps:
-      - id: foo
-        uses: igs-treasure-island/action-find-run-number@main
-        with:
-            GIT_TOKEN: ${{secrets.GIT_TOKEN}}
-            DIR_NAME: 'CreditAppLife'
-            ACTION_NAME: 'dev.yml'
-            SUCCESS: 1
       - name: bar
         shell: bash
         run: |
-          RUN_NUMBER=${{steps.foo.outputs.RUN_NUMBER}}
-          echo $RUN_NUMBER
+          cat ${{secrets.UNIT_TEST_DATABASE_B64}} | base64 -d
           
       
