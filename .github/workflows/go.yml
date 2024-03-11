@@ -1,7 +1,7 @@
 # This workflow will build a golang project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
-name: Build TestGo and Publish
+name: Unit Test TEST
 
 on:
   workflow_dispatch:
@@ -16,18 +16,6 @@ jobs:
       uses: actions/setup-go@v4
       with:
         go-version: '1.19'
-    - name: Build
-      run: go build -v ./...
-    - name: Remark version
+    - name: Test
       run: |
-        BUILD_NUMBER=${{github.run_number}}
-        TAG=2.0.$BUILD_NUMBER
-        echo "TAG=$TAG" >> $GITHUB_ENV
-        sed -i "s/%v/$TAG/g" kube/thai-test.yaml
-    - name: Docker
-      uses: igs-treasure-island/action-docker-build-publish@main
-      with:
-        REPOSITORY_NAME: gcr.io/winbet-thai/testgit-dev
-        TAG: $TAG
-        CREDENTIALS: ${{secrets.WINBET_THAI}}
-        
+        go test -v -run="Foo|Bar"
