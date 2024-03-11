@@ -17,6 +17,6 @@ jobs:
         with:
           GIT_TOKEN: ${{secrets.GIT_TOKEN}}
           GO_VERSION: '1.19'
-          BRANCH: dev
+          BRANCH: main
           USE_MARDUK: 0
           
