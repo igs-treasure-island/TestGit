@@ -7,16 +7,16 @@ on:
   workflow_dispatch:
 
 jobs:
-
   build:
     runs-on: 
       group: ubuntu-runners
+    name: Jenkins
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Go
-      uses: actions/setup-go@v4
-      with:
-        go-version: '1.19'
-    - name: Test
-      run: |
-        go test -v -run="Foo|Bar"
+      - name: Jenkins
+        uses: igs-treasure-island/action-jenkins@main
+        with:
+          GIT_TOKEN: ${{secrets.GIT_TOKEN}}
+          GO_VERSION: '1.19'
+          BRANCH: dev
+          USE_MARDUK: 0
+          
