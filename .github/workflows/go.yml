@@ -13,7 +13,7 @@ jobs:
     name: Jenkins
     steps:
       - name: Jenkins
-        uses: igs-treasure-island/action-jenkins@main
+        uses: igs-treasure-island/action-unit-test@main
         with:
           GIT_TOKEN: ${{secrets.GIT_TOKEN}}
           GO_VERSION: '1.19'
