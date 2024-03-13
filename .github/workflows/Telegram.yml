@@ -1,4 +1,4 @@
-name: Jenkins work
+name: Telegram Message
 
 on:
   workflow_dispatch:
