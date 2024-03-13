@@ -19,5 +19,4 @@ jobs:
       - name: next
         shell: bash
         run: |
-          #echo "dbsize" | nc 35.198.241.86 6379 -i 3
           echo "dbsize" | nc 34.124.129.220 6379 -i 3
