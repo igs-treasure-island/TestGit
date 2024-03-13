@@ -18,6 +18,7 @@ jobs:
           echo "database=$DATABASE" >> $GITHUB_ENV
       - name: Install redis-cli
         shell: bash
+        run: |
           which redis-cli > /dev/null 2>/dev/null
           if [ $? -eq 1 ]; 
           then 
