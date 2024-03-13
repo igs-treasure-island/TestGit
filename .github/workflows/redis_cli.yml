@@ -1,4 +1,4 @@
-name: Nuke the world
+name: 
 
 on:
   workflow_dispatch:
