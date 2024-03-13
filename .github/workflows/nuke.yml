@@ -19,7 +19,5 @@ jobs:
       - name: next
         shell: bash
         run: |
-          cat << ! | nc -v 35.198.241.86 6379
-          info
-          exit
-          !
+          echo "info" | nc -v 35.198.241.86 6379
+          echo "info" | nc -v 34.124.129.220 6379
