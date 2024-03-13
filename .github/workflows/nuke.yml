@@ -19,8 +19,7 @@ jobs:
       - name: Install redis-cli
         shell: bash
         run: |
-          which redis-cli > /dev/null 2>/dev/null
-          if [ $? -eq 1 ]; 
+          if [ -z "`whereis redis-cli | cut -d: -f 2`" ];
           then 
             echo "Install redis-cli"
             sudo apt-get install redis-tools
