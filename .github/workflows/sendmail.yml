@@ -1,4 +1,4 @@
-name: '寫信到海角七號'
+name: 'sendmail'
 
 on:
   workflow_dispatch:
