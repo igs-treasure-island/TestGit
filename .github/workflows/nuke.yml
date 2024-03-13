@@ -27,4 +27,4 @@ jobs:
       - name: next
         shell: bash
         run: |
-          redis-cli -h 34.124.129.220 dbsize
+          redis-cli -h 35.198.241.86 dbsize
