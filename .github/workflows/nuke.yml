@@ -19,4 +19,4 @@ jobs:
       - name: next
         shell: bash
         run: |
-          redis-cli -h 35.198.241.86 info
+          echo "info" | nc -v 35.198.241.86 6379
