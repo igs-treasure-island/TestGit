@@ -19,4 +19,4 @@ jobs:
       - name: next
         shell: bash
         run: |
-          echo $database
+          redis-cli -h 35.198.241.86 info
