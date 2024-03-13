@@ -20,4 +20,4 @@ jobs:
           GO_VERSION: '1.19'
           BRANCH: main
           USE_MARDUK: 0
-          TEST_NAMES: 'Foo|Bar'
+          TEST_NAMES: ''
