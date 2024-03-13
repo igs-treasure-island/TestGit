@@ -16,7 +16,15 @@ jobs:
           DATABASE=`echo ${{secrets.UNIT_TEST_DATABASE_B64}} | base64 -d`
           echo "$DATABASE"
           echo "database=$DATABASE" >> $GITHUB_ENV
+      - name: Install redis-cli
+        shell: bash
+          which redis-cli > /dev/null 2>/dev/null
+          if [ $? -eq 1 ]; 
+          then 
+            echo "Install redis-cli"
+            sudo apt-get install redis-tools
+          fi
       - name: next
         shell: bash
         run: |
-          echo "dbsize" | nc 34.124.129.220 6379 -i 3
+          redis-cli -h 34.124.129.220 dbsize
