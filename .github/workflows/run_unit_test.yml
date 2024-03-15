@@ -25,7 +25,8 @@ jobs:
           #LIST=`cat /tmp/list.txt`
           LIST=`cat .unittest`
           echo $LIST
-          JQ=`cat /tmp/list.txt | jq -Rsc '. / "\n" - [""]'`
+          #JQ=`cat /tmp/list.txt | jq -Rsc '. / "\n" - [""]'`
+          JQ=`cat .unittest | jq -Rsc '. / "\n" - [""]'`
           echo "matrix=$JQ" >> $GITHUB_OUTPUT
           TAG=`date +%Y%m%d`_production
           echo "tag=$TAG" >> $GITHUB_OUTPUT
