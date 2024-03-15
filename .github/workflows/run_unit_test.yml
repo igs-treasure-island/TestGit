@@ -17,12 +17,13 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GIT_TOKEN }}
         run: |
-          curl -L \
-          -H "Accept: application/vnd.github+json" \
-          -H "Authorization: token ${{env.GH_TOKEN}}" \
-          "https://api.github.com/orgs/igs-treasure-island/repos" 2>/dev/null | \
-          grep \"full_name\":| cut -d/ -f 2|cut -d\" -f 1|grep -v -f .unittestignore > /tmp/list.txt
-          LIST=`cat /tmp/list.txt`
+          #curl -L \
+          #-H "Accept: application/vnd.github+json" \
+          #-H "Authorization: token ${{env.GH_TOKEN}}" \
+          #"https://api.github.com/orgs/igs-treasure-island/repos" 2>/dev/null | \
+          #grep \"full_name\":| cut -d/ -f 2|cut -d\" -f 1|grep -v -f .unittestignore > /tmp/list.txt
+          #LIST=`cat /tmp/list.txt`
+          LIST=`cat .unittest`
           echo $LIST
           JQ=`cat /tmp/list.txt | jq -Rsc '. / "\n" - [""]'`
           echo "matrix=$JQ" >> $GITHUB_OUTPUT
