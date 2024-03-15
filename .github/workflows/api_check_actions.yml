@@ -1,0 +1,29 @@
+name: API test for check build
+on:
+  workflow_dispatch:
+jobs:
+  use_api:
+    runs-on: 
+      group: ubuntu-runners
+    steps:
+      - id: set-matrix
+        env:
+          GH_TOKEN: ${{ secrets.GIT_TOKEN }}
+        run: |
+          curl -L \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: token ${{env.GH_TOKEN}}" \
+          "https://api.github.com/repos/igs-treasure-island/CreditAppLife/actions/runs" 2>/dev/null > output.txt
+          export RUN_NUMBER=`cat output.txt |jq '.workflow_runs|map(select(.path|.==".github/workflows/dev.yml"))|map(select(.conclusion|.=="failure"))|map(.run_number)|max'`
+          echo $RUN_NUMBER
+          RUN_ID=`cat output.txt |jq '.workflow_runs|map(select(.path|.==".github/workflows/dev.yml"))|map(select(.run_number|tostring==env.RUN_NUMBER))|.[].id'`
+          echo $RUN_ID
+          curl -L \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: token ${{env.GH_TOKEN}}" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          https://api.github.com/repos/igs-treasure-island/CreditAppLife/actions/runs/${RUN_ID}/jobs 2>/dev/null > joblog.txt
+          cat joblog.txt
+          
+          
+          
