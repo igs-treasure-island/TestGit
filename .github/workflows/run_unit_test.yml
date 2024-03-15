@@ -9,6 +9,10 @@ jobs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
       tag: ${{ steps.set-matrix.outputs.tag }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GIT_TOKEN }}
       - id: set-matrix
         env:
           GH_TOKEN: ${{ secrets.GIT_TOKEN }}
