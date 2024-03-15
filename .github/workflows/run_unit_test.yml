@@ -1,4 +1,4 @@
-name: API test
+name: '尋找並執行全專案的unit test action'
 on:
   workflow_dispatch:
 jobs:
