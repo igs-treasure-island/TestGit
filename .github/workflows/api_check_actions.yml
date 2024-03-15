@@ -19,7 +19,7 @@ jobs:
           STATE=`cat output.txt|jq '.state'`
           echo $STATE
           if [ -z "$STATE" ]; then echo "unit_test.yml not found"; exit 0; fi
-          if [ "$STATE" != "active" ]; then echo "unit_test.yml not active"; exit 0; fi
+          if [ "$STATE" != '"active"' ]; then echo "unit_test.yml not active"; exit 0; fi
           echo "unit_test.yml is active"
           #export RUN_NUMBER=`cat output.txt |jq '.workflow_runs|map(select(.path|.==".github/workflows/dev.yml"))|map(select(.conclusion|.=="failure"))|map(.run_number)|max'`
           #echo $RUN_NUMBER
