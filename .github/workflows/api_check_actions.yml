@@ -10,7 +10,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GIT_TOKEN }}
         run: |
-          REPO="go-backend"
+          REPO="backend"
           curl -L \
           -H "Accept: application/vnd.github+json" \
           -H "Authorization: token ${{env.GH_TOKEN}}" \
