@@ -1,4 +1,4 @@
-name: API test for check build
+name: API test for check workflow
 on:
   workflow_dispatch:
 jobs:
