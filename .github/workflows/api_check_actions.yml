@@ -19,7 +19,7 @@ jobs:
           cat output.txt
           STATE=`cat output.txt|grep "state"`
           echo $STATE
-          ACTIVE=`echo "$STATE"|grep "active"`
+          ACTIVE=`cat output.txt |grep "state"|grep "active"`
           echo $ACTIVE
           #if [ -z "$STATE" ]; then echo "unit_test.yml not found"; fi
           #if [ -z "$ACTIVE" ]; then echo "unit_test.yml not active"; fi
