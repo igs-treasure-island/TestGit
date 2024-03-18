@@ -26,7 +26,7 @@ jobs:
           -H "Authorization: token ${{env.GH_TOKEN}}" \
           -H "X-GitHub-Api-Version: 2022-11-28" \
           https://api.github.com/repos/igs-treasure-island/$REPO/actions/workflows/unit_test.yml/dispatches \
-          -d '{"ref":"main"}' 2>/dev/null > joblog.txt
+          -d '{"ref":"main"}' > joblog.txt
           cat joblog.txt
           
           
