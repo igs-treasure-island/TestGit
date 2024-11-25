@@ -9,3 +9,8 @@ func foo() {
 func bar() {
 	fmt.Println("bar")
 }
+
+func both() {
+	foo()
+	bar()
+}
