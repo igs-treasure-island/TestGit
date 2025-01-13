@@ -13,12 +13,34 @@ import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
+func comp(a,b,c int) {
+	if a > b {
+		if b > c {
+			fmt.Println("check a b c order",a,b,c)
+		} else {
+			if a > c {
+				fmt.Println("check a b c order",a,c,b)
+			}
+		}
+	} else {
+		if b > c {
+			if a > c {
+				fmt.Println("check a b c order",b,a,c)
+			} else {
+				fmt.Println("check a b c order",b,c,a)
+			}
+		} else {
+			fmt.Println("check a b c order",c,b,a)
+		}
+	}
+}
 
 func main() {
 	fmt.Printf("Hello, world\n")
 	fmt.Print("Edit by Yu\n")
 	fmt.Printf("From w0002\n")
 	fmt.Printf("From w0001-1\n")
+	comp(1,2,3)
 
 	r := gin.New()
 	r.Use(gin.Recovery())
