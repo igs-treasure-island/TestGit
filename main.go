@@ -19,6 +19,8 @@ func main() {
 	fmt.Print("Edit by Yu\n")
 	fmt.Printf("From w0002\n")
 	fmt.Printf("From w0001-1\n")
+	var n *int
+	fmt.Printf("Nil error:%d\n",*n)
 
 	r := gin.New()
 	r.Use(gin.Recovery())
