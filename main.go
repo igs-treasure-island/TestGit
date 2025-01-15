@@ -14,11 +14,20 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+func same() {
+	fmt.Printf("Hello, world\n")
+	fmt.Print("Edit by Yu\n")
+	fmt.Printf("From w0002\n")
+	fmt.Printf("From w0001-1\n")
+	fmt.Printf("err)
+}
+
 func main() {
 	fmt.Printf("Hello, world\n")
 	fmt.Print("Edit by Yu\n")
 	fmt.Printf("From w0002\n")
 	fmt.Printf("From w0001-1\n")
+	same()
 
 	r := gin.New()
 	r.Use(gin.Recovery())
