@@ -14,11 +14,16 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+func minor(m int) {
+	fmt.Println("Minor:%d,m)
+}
+
 func main() {
 	fmt.Printf("Hello, world\n")
 	fmt.Print("Edit by Yu\n")
 	fmt.Printf("From w0002\n")
 	fmt.Printf("From w0001-1\n")
+	minor(123)
 
 	r := gin.New()
 	r.Use(gin.Recovery())
