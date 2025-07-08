@@ -1,0 +1,30 @@
+name: 
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hello_world_job:
+    runs-on: 
+      group: ubuntu-runners
+    name: A job to say hello
+    steps:
+      - id: foo
+        name: bar
+        shell: bash
+        run: |
+          DATABASE=`echo ${{secrets.UNIT_TEST_DATABASE_B64}} | base64 -d`
+          echo "$DATABASE"
+          echo "database=$DATABASE" >> $GITHUB_ENV
+      - name: Install redis-cli
+        shell: bash
+        run: |
+          if [ -z "`whereis redis-cli | cut -d: -f 2`" ];
+          then 
+            echo "Install redis-cli"
+            sudo apt-get install redis-tools
+          fi
+      - name: next
+        shell: bash
+        run: |
+          redis-cli -h 35.198.241.86 dbsize

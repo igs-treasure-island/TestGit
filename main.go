@@ -17,7 +17,8 @@ import (
 func main() {
 	fmt.Printf("Hello, world\n")
 	fmt.Print("Edit by Yu\n")
-	fmt.Printf("From w0001\n")
+	fmt.Printf("From w0002\n")
+	fmt.Printf("From w0001-1\n")
 
 	r := gin.New()
 	r.Use(gin.Recovery())
@@ -35,6 +36,10 @@ func main() {
 		c.JSON(http.StatusOK, "pong2")
 	})
 
+	r.GET("/test", func(c *gin.Context) {
+		c.JSON(http.StatusOK, "test")
+	})
+	
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, "success")
 	})

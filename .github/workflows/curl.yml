@@ -1,0 +1,16 @@
+name: curl test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: 
+      group: ubuntu-runners
+    name: A job to say hello
+    steps:
+      - name: Key File
+        shell: bash
+        run: |
+          curl https://www.ipaddress.my/?lang=zh_TW
+

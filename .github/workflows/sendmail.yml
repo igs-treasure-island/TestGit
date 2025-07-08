@@ -1,0 +1,21 @@
+name: 'sendmail'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: 
+      group: ubuntu-runners
+    name: A job to say hello
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      # You can test your matrix by printing the current Python version
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
+      - name: Sendmail test
+        run: python checkBuild.py "Hello world"
