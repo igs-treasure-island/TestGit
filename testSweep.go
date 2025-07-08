@@ -5,5 +5,4 @@ func main() {
 	// Call the SayHello function and print the result
 
 	println("Hello from test.go!")
-	println("Hello from test.go!")
 }
