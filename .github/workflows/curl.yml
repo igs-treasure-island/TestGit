@@ -12,5 +12,5 @@ jobs:
       - name: Key File
         shell: bash
         run: |
-          curl https://www.ipaddress.my/?lang=zh_TW
+          curl -u "oldrd6:1qaz2WSX" http://test-st.jlfafafa2.com:8070/api/v2/applications -i
 
