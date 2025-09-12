@@ -5,8 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: 
-      group: ubuntu-runners
+    runs-on: ubuntu-01
     name: A job to say hello
     steps:
       - name: Key File
