@@ -15,16 +15,10 @@ smtp_server = "smtp.gmail.com"
 password = "tiyzqqlmeejmprck"
 
 sender_email = "composition0936@gmail.com"
-#receiver_email = "yatzliu@igs.com.tw,nukejhuang@igs.com.tw,jayanchen@igs.com.tw,chengkangshih@igs.com.tw"
-#receiver_emails = ["yatzliu@igs.com.tw","nukejhuang@igs.com.tw","jayanchen@igs.com.tw","chengkangshih@igs.com.tw"]
-#receiver_email = "nukejhuang@igs.com.tw,rainliao@igs.com.tw"
-#receiver_emails = ["nukejhuang@igs.com.tw","rainliao@igs.com.tw"]
-receiver_email = "nukejhuang@igs.com.tw"
 receiver_emails = ["nukejhuang@igs.com.tw"]
-#receiver_email = "luhongyu@igs.com.tw,chuntingchou@igs.com.tw,peterweng@igs.com.tw,nukejhuang@igs.com.tw,kailihuang@igs.com.tw,muchenghuang@igs.com.tw,rainliao@igs.com.tw,shanesu@igs.com.tw"
-#receiver_emails = ["luhongyu@igs.com.tw","chuntingchou@igs.com.tw","peterweng@igs.com.tw","nukejhuang@igs.com.tw","kailihuang@igs.com.tw","muchenghuang@igs.com.tw","rainliao@igs.com.tw","shanesu@igs.com.tw"]
 
 def sendmail(subject,text,files=None):
+    receiver_email = ",".join(receiver_emails)
     message = MIMEMultipart('alternative')
     message.set_charset('utf8')
     message["From"] = sender_email
