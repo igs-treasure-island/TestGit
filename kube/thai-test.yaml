@@ -35,7 +35,7 @@ spec:
         - name: TZ
           value: Asia/Taipei
         - name: database
-          value: 10.148.0.72
+          value: 10.148.0.146
         - name: redis
           value: "10.148.0.63:6379"
         - name: version
