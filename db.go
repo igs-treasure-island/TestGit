@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/igs-treasure-island/utils/db"
-	_ "github.com/microsoft/go-mssqldb"
+	_ "github.com/microsoft/go-mssqldb" // registers mssql driver
 	"gorm.io/driver/sqlserver"
 	"gorm.io/gorm"
 )
@@ -12,7 +12,7 @@ import (
 var (
 	/* 資料庫 */
 	backendDb *gorm.DB // 讀資料專用通道
-	logDb *gorm.DB // 讀資料專用通道
+	logDb     *gorm.DB // 讀資料專用通道
 )
 
 func dbInit() {

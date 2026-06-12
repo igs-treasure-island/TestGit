@@ -35,12 +35,6 @@ def sendmail(subject,text,files=None):
     part1 = MIMEText(text, "html", "UTF-8")
     message.attach(part1)
 
-    #for f in files or []:
-    #    with open(f,"rb") as fil:
-    #        part = MIMEApplication(fil.read(),Name=basename(f))
-    #        part['Content-Disposition']='attachment; filename="%s"' % basename(f)
-    #        message.attach(part)
-
     for path in files or []:
         part = MIMEBase('application', "octet-stream")
         with open(path, 'rb') as file:
@@ -53,8 +47,6 @@ def sendmail(subject,text,files=None):
     smtp.ehlo()
     smtp.starttls()
     smtp.login(sender_email,password)
-    status=smtp.sendmail(sender_email,receiver_emails,message.as_string())
+    failed = smtp.sendmail(sender_email,receiver_emails,message.as_string())
     smtp.quit()
-    if status == {}:
-        return 1
-    return 0
+    return 0 if failed else 1
