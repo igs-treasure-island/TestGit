@@ -41,6 +41,6 @@ def sendmail(subject,text,files=None):
     smtp.ehlo()
     smtp.starttls()
     smtp.login(sender_email,password)
-    failed = smtp.sendmail(sender_email,receiver_emails,message.as_string())
+    failed = smtp.sendmail(sender_email,receiver_emails,message.as_string())  # NOSONAR - smtplib.SMTP.sendmail returns dict; empty=success, non-empty=partial failure
     smtp.quit()
     return 0 if failed else 1
