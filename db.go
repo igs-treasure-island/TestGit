@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/igs-treasure-island/utils/db"
-	_ "github.com/microsoft/go-mssqldb"
+	_ "github.com/microsoft/go-mssqldb" // registers mssql driver
 	"gorm.io/driver/sqlserver"
 	"gorm.io/gorm"
 )
