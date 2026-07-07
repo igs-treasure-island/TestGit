@@ -12,10 +12,9 @@ from email.header import Header
 
 port = 587
 smtp_server = "smtp.gmail.com"
-password = "tiyzqqlmeejmprck"
-
-sender_email = "composition0936@gmail.com"
-receiver_emails = ["nukejhuang@igs.com.tw"]
+password = os.getenv("GMAIL_SMTP")
+sender_email = "nukejhuang@tadagaming.com"
+receiver_emails = ["nukejhuang@tadagaming.com"]
 
 def sendmail(subject,text,files=None):
     receiver_email = ",".join(receiver_emails)
