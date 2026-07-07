@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 #
-import smtplib, email
+import smtplib, email, os
 from email import encoders
 from os.path import basename
 from email.mime.base import MIMEBase
